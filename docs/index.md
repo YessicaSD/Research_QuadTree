@@ -93,6 +93,8 @@ variables:
 
 ### TODO 1
 
+download todos [here](https://github.com/didaclis/Research_QuadTree).
+
 * **statement:**
 
 Implement funciton AddCollider. This function only add the collider in list to elements and if the size of elements is more bigger than the maxim elements call the subdivide function.
@@ -180,13 +182,13 @@ Implement funciton PlaceCollider. Add the collider in biggest level that comply 
 * **solution:**
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL.PNG?raw=true" width="450">
-  <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL2.PNG?raw=true" width="450">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL.PNG?raw=true" width="300">
+  <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL2.PNG?raw=true" width="300">
 </p>
 Before do TODO 6 i need to explain the problem that his solved. With the function CheckCollision implemented in this moment the quadtree check the collisions with colliders in his node, but what happens when the collider isn't in one node in the maxim level of this quadtree? In last todo we saved in the last node to complit the CheckIn boolean. This is the result: 
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/QuadTreeCodeTree.gif?raw=true" width="450">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/QuadTreeCodeTree.gif?raw=true" width="300">
   </p>
   For dectect collisions with this nodes we need check the collider with elements to save in child nodes.
 
@@ -203,7 +205,7 @@ Detect collision on lines.
 * **solution:**
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO6SOL.PNG?raw=tru" width="450">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO6SOL.PNG?raw=true" width="450">
 </p>
 ## Autor
 
