@@ -21,8 +21,8 @@ CollisionQuadTree::~CollisionQuadTree()
 void CollisionQuadTree::Subdivide()
 {
 	//TODO2:
-	//Implement Subdivide function
-	//Create 4 childs to divide the father
+	//implement Subdivide function.
+	//Create 4 childs that are divisions of the father.
 	isDivided = true;
 	//topLeft
 	nodes[0] = new CollisionQuadTree(max_levels, { area.x,area.y, area.w / 2, area.h / 2 }, level + 1, maxElements, this);
@@ -39,8 +39,11 @@ void CollisionQuadTree::AddCollider(Collider* col)
 {
 
 	//TODO1:
-	//Create funtion to add collider in a quadTree
-	//Remember! if level pass the maxElements subdivide
+	/*Implement AddCollider function();
+	This function only adds colliders in the tree’s level  where it’s called.
+	If the size of the Elements list  is smaller than maxElements call subdivide function.*/
+
+
 	elements.push_back(col);
 	if (elements.size() >= maxElements)
 	{
@@ -56,9 +59,9 @@ void CollisionQuadTree::DistrbuteColliders()
 	for (;item != elements.end();++item)
 	{
 		//TODO3:
-		/*create the loop by distribute the colliders between the new 4 quadtree
-		remember delete collider when save in subnode
-		call the function in subdivide*/
+		/*Create the loop which distributes the colliders between the 4 new  quadtrees
+		Remember to delete colliders when saved in a subnode
+		Call this function in subdivide */
 
 		bool quit = false;
 		for (uint i = 0; i < 4; ++i)
@@ -67,7 +70,7 @@ void CollisionQuadTree::DistrbuteColliders()
 			{
 				nodes[i]->elements.push_back(*item);
 		//TODO4:
-		//Comprove that if one node pass the maxElements it's subdivided again.
+		//creates the condicion to call subdivide function.
 				if (nodes[i]->GetSize() >= maxElements)
 				{
 					nodes[i]->Subdivide();
@@ -118,7 +121,8 @@ void CollisionQuadTree::CheckCollisions(float dt)
 			for (int i = 0; i < 4; ++i)
 			{
 				//TODO6:
-				//Take de function for check collisions in the same level and implement for check the collision with his sons
+				//Take the function that checks collisions in the same level and implement it to check the collision with its childs.
+
 				std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
 				for (; item2 != nodes[i]->elements.end(); ++item2)
 				{
@@ -149,9 +153,10 @@ void CollisionQuadTree::PlaceCollider(Collider * col)
 {
 	BROFILER_CATEGORY("PutEntitiesinQuadtree", Profiler::Color::Red);
 	//TODO5:
-		//implement method by put one collider in his place in the quadTree
-		//discoment part commented, you implement the condicional if is divided
-		//be caregul! 2nd part is in scene
+	/*implements the method that puts a collider in its place in the quadTree
+		uncomment the commented parts.It also implements the function when is divided
+		Uncomment function in Scene.cpp*/
+
 
 	if (CheckIn(col->rect))
 	{

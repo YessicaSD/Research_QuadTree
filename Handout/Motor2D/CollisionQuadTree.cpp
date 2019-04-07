@@ -20,10 +20,8 @@ CollisionQuadTree::~CollisionQuadTree()
 void CollisionQuadTree::Subdivide()
 {
 	//TODO2:
-	//Implement Subdivide function
-	//be careful with the maxim_levels
-	//TODO3
-	//use DistrivuteColliders
+	//implement Subdivide function.
+	//Create 4 childs that are divisions of the father.
 
 }
 
@@ -31,8 +29,9 @@ void CollisionQuadTree::AddCollider(Collider* col)
 {
 
 	//TODO1:
-	//Create funtion to add collider in a quadTree
-	//Remember! if level pass the maxElements subdivide
+	/*Implement AddCollider function();
+	This function only adds colliders in the tree’s level  where it’s called.
+	If the size of the Elements list  is smaller than maxElements call subdivide function.*/
 }
 
 void CollisionQuadTree::DistrbuteColliders()
@@ -41,11 +40,12 @@ void CollisionQuadTree::DistrbuteColliders()
 	for (;item != elements.end();++item)
 	{
 		//TODO3:
-		//create the loop by distribute the colliders between the new 4 quadtree
-		//remember delete collider when save in subnode		
+		/*Create the loop which distributes the colliders between the 4 new  quadtrees
+		Remember to delete colliders when saved in a subnode
+		Call this function in subdivide */
 		
 		//TODO4:
-		//Comprove that if one node pass the maxElements it's subdivided again.
+		//creates the condicion to call subdivide function.
 		
 	}
 }
@@ -86,8 +86,7 @@ void CollisionQuadTree::CheckCollisions(float dt)
 			for (int i = 0; i < 4; ++i)
 			{
 				//TODO6:
-				//Take de function for check collisions in the same level and implement for check the collision with his sons
-			
+				//Take the function that checks collisions in the same level and implement it to check the collision with its childs.
 
 				nodes[i]->CheckCollisions(dt);
 			}
@@ -104,12 +103,15 @@ void CollisionQuadTree::PlaceCollider(Collider * col)
 
 	if (CheckIn(col->rect))
 	{
+		//TODO5:
+	/*implements the method that puts a collider in its place in the quadTree
+		uncomment the commented parts.It also implements the function when is divided
+		Uncomment function in Scene.cpp*/
 		//use by check if collider are inside one of the nodes
 		//bool isIn = false;
 		//if (isDivided)
 		//{
-			//TODO5:
-			//implement method by put one collider in his place in the quadTree
+		
 			
 		//}
 		//else
