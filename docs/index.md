@@ -203,7 +203,7 @@ Detect collision on lines.
 * **solution:**
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO6SOL.PNG?raw=true" width="450">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO6SOL.PNG?raw=tru" width="450">
 </p>
 ## Autor
 
