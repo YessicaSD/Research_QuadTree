@@ -1,6 +1,6 @@
 # Research_QuadTree
 My name is Dídac Llop i serna, student of the
-[Bachelor’s Degree in Video Games by UPC at CITM](https://www.citm.upc.edu/ing/estudis/graus-videojocs/). This content is generated for the second year’s subject Project 2, under supervision of lecturer Ricard Pillosu.
+[CITM](https://www.citm.upc.edu/ing/estudis/graus-videojocs/). This content is generated for the second year’s subject Project 2, under supervision of lecturer Ricard Pillosu.
 
 ## About the project
 

@@ -8,7 +8,7 @@
 #include "j1App.h"
 
 CollisionQuadTree::CollisionQuadTree(uint max_levels, SDL_Rect area, uint level, uint maxElements, CollisionQuadTree * prev):
-	Quadtree(max_levels, area, level), maxElements(maxElements), prev(prev)
+	Quadtree(max_levels, area, level, maxElements), prev(prev)
 {
 	CleanUp();
 }
@@ -98,34 +98,34 @@ void CollisionQuadTree::CheckCollisions(float dt)
 		{
 		//TODO6:
 		//Take de function for check collisions in the same level and implement for check te collision with his sons
-			//if (elements.size() != 0)
-			//{
-			//	std::list<Collider*>::iterator item = elements.begin();
-			//	for (; item != elements.end(); ++item)
-			//	{
-			//		// skip empty colliders
-			//		if (*item == nullptr)
-			//			continue;
-			//		c1 = (*item);
-			//		// avoid checking collisions already checked
+			if (elements.size() != 0)
+			{
+				std::list<Collider*>::iterator item = elements.begin();
+				for (; item != elements.end(); ++item)
+				{
+					// skip empty colliders
+					if (*item == nullptr)
+						continue;
+					c1 = (*item);
+					// avoid checking collisions already checked
 
-			//		std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
-			//		for (; item2 != nodes[i]->elements.end(); ++item2)
-			//		{
-			//			// skip empty colliders
-			//			if (*item2 == nullptr)
-			//				continue;
-			//			c2 = *item2;
-			//			++App->scene->collisionsCheck;
-			//			if (c1->CheckCollision(c2->rect) == true)
-			//			{
-			//				if (c1->to_delete == false && c2->to_delete == false) {
-			//					App->collider->OnCollisionCall(c1, c2, dt);
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
+					std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
+					for (; item2 != nodes[i]->elements.end(); ++item2)
+					{
+						// skip empty colliders
+						if (*item2 == nullptr)
+							continue;
+						c2 = *item2;
+						++App->scene->collisionsCheck;
+						if (c1->CheckCollision(c2->rect) == true)
+						{
+							if (c1->to_delete == false && c2->to_delete == false) {
+								App->collider->OnCollisionCall(c1, c2, dt);
+							}
+						}
+					}
+				}
+			}
 			nodes[i]->CheckCollisions(dt);
 		}
 	}

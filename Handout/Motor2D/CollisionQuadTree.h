@@ -34,7 +34,7 @@ private:
 
 	CollisionQuadTree*			prev = nullptr; //save the Quadtree that create them
 
-	uint						maxElements = 0; //max elements to divide;
+
 
 };
 

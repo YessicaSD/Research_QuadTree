@@ -64,35 +64,12 @@ void CollisionQuadTree::CheckCollisions(float dt)
 		{
 			if (elements.size() != 0)
 			{
-				std::list<Collider*>::iterator item = elements.begin();
-				for (; item != elements.end(); ++item)
-				{
-					// skip empty colliders
-					if (*item == nullptr)
-						continue;
-					c1 = (*item);
-					// avoid checking collisions already checked
-
-					std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
-					for (; item2 != nodes[i]->elements.end(); ++item2)
-					{
-						// skip empty colliders
-						if (*item2 == nullptr)
-							continue;
-						c2 = *item2;
-						++App->scene->collisionsCheck;
-						if (c1->CheckCollision(c2->rect) == true)
-						{
-							if (c1->to_delete == false && c2->to_delete == false) {
-								App->collider->OnCollisionCall(c1, c2, dt);
-							}
-						}
-					}
-				}
+				//take the function to check collisions in the same node and implement by check collisions with is sons
+				nodes[i]->CheckCollisions(dt);
 			}
-			nodes[i]->CheckCollisions(dt);
 		}
 	}
+		//chack collisions in the same node
 	for (std::list<Collider*>::iterator item = elements.begin(); item != elements.end(); ++item)
 	{
 		// skip empty colliders
@@ -128,15 +105,15 @@ void CollisionQuadTree::PlaceCollider(Collider * col)
 	if (CheckIn(col->rect))
 	{
 		//use by check if collider are inside one of the nodes
-		bool isIn = false;
-		if (isDivided)
-		{
+		//bool isIn = false;
+		//if (isDivided)
+		//{
 			//TODO5:
 			//implement method by put one collider in his place in the quadTree
 			
-		}
-		else
-			AddCollider(col);
+		//}
+		//else
+			//AddCollider(col);
 	}
 }
 

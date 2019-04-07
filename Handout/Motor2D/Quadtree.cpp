@@ -4,8 +4,8 @@
 #include "j1Render.h"
 #include "j1App.h"
 
-Quadtree::Quadtree(uint max_levels, SDL_Rect area, uint level) 
-	:max_levels(max_levels), level(level), area(area)
+Quadtree::Quadtree(uint max_levels, SDL_Rect area, uint level, uint maxElements)
+	:max_levels(max_levels), level(level), area(area), maxElements(maxElements)
 {
 	isDivided = false;
 }
