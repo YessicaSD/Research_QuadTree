@@ -6,9 +6,9 @@ My name is Dídac Llop i serna, student of the
 
 This project contains a research about the functions to quadtree by optimitzate the code, and his aplication in	check collisions and camera culling. I have enfasis in check collisions.
 
-You can find my research in [website](https://christt105.github.io/Sprite_Ordering_and_Camera_Culling_Personal_Research/).
+You can find my research in [website]( https://didaclis.github.io/Research_QuadTree/).
 
-Link to the [repository](https://github.com/didaclis/QuadTree_Research).
+Link to the [repository](https://github.com/didaclis/Research_QuadTree).
 
 ## Controls
 
@@ -34,4 +34,4 @@ Link to the [repository](https://github.com/didaclis/QuadTree_Research).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/didaclis/QuadTree_Research/blob/master/LICENSE) file
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/didaclis/Research_QuadTree/blob/master/LICENSE) file
