@@ -1,5 +1,9 @@
 # QuadTree
 
+[Repository](https://github.com/didaclis/Research_QuadTree) | [Exercises](https://github.com/didaclis/Research_QuadTree/releases/tag/Handout) | [Solutions](https://github.com/didaclis/Research_QuadTree/releases/tag/Solution)
+
+
+## Introduction
 In videogoames, when we want to draw a map on camera or verify if two entities/ particles are colliding, we use the method we have learned previously. This consists on an exhaustive method that consist of going element by element to perform the desired action. 
 Now lets analyze this method. If we have 10 collision we shall check each particle colliding with the other 9. So we finally make 10 * 10 = 100 checks. In case that we have 100 collisions we will make 100 * 100 = 10.000 checks and if we have 1000 collision -> 1000 * 1000 = 1.000.000 checks. We can see that the check collisions have a cost of elements^2. 
 
