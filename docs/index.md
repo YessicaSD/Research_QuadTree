@@ -6,7 +6,7 @@ In videdgoames, when we want draw map in camera or check if two entities/ partic
 
 When we talk to programming, one tree is one of the more usefull structure of data. His principal caracteristic is that store data in hierarchical structure when the arrays, list, etc... do it in a lineal form. Trees are compost by nodes(store the information) and brarnch (link nodes).
 
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/tree.jpg" width="520">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/tree.jpg?raw=true" width="520">
 
 
 ## QuadTree
