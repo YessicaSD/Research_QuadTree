@@ -9,7 +9,6 @@ class j1Entity;
 enum COLLIDER_TYPE
 {
 	COLLIDER_NONE = -1,
-	COLLIDER_SCENE,
 	COLLIDER_ENTITY,
 
 	COLLIDER_MAX
@@ -46,7 +45,6 @@ public:
 	bool CleanUp();
 	Collider* AddCollider(SDL_Rect rect, COLLIDER_TYPE type, j1Entity * callback = nullptr);
 	bool EraseAllCollider(Collider* collider);
-	bool EraseMapCollider();
 	void DebugDraw();
 	bool checkColisionList(Collider* enemCollider);
 	bool Check(Collider* c1, COLLIDER_TYPE type);

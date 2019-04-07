@@ -43,8 +43,6 @@ void j1Entity::OnCollision(Collider * collider1, Collider * collider2, float dt)
 	if(col_anim.Finished())
 		col_anim.reset();
 	current_animation = &col_anim;
-	if (collider1->type == COLLIDER_SCENE || collider2->type == COLLIDER_SCENE)
-		goleft = !goleft;
 }
 
 

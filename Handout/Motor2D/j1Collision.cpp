@@ -15,10 +15,6 @@ j1Colliders::j1Colliders() : j1Module()
 	name.assign("colliders");
 	
 	matrix[COLLIDER_ENTITY][COLLIDER_ENTITY] = true;
-	matrix[COLLIDER_ENTITY][COLLIDER_SCENE] = true;
-
-	matrix[COLLIDER_SCENE][COLLIDER_ENTITY] = true;
-	matrix[COLLIDER_SCENE][COLLIDER_SCENE] = false;
 
 }
 // Destructor
@@ -115,9 +111,6 @@ void j1Colliders::DebugDraw()
 			case COLLIDER_NONE: // white
 				App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 				break;
-			case COLLIDER_SCENE: //blue
-				App->render->DrawQuad(colliders[i]->rect, 0, 0, 220, alpha);
-				break;
 			case COLLIDER_ENTITY: // red
 				App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 				break;
@@ -171,18 +164,6 @@ bool j1Colliders::EraseAllCollider(Collider* collider)
 	return false;
 }
 
-bool j1Colliders::EraseMapCollider()
-{
-	for (uint i = 0; i < colliders.size(); ++i)
-	{
-		if (colliders[i] != nullptr && (colliders[i]->type <= COLLIDER_SCENE))
-		{
-			delete colliders[i];
-			colliders[i] = nullptr;
-		}
-	}
-	return false;
-}
 // -----------------------------------------------------
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {

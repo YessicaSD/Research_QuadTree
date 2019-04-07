@@ -62,24 +62,6 @@
     <ClInclude Include="PugiXml\src\pugixml.hpp">
       <Filter>Tools\PuguiXML</Filter>
     </ClInclude>
-    <ClInclude Include="j1Module.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Window.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Textures.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Render.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Map.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Input.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="p2Defs.h">
       <Filter>Tools</Filter>
     </ClInclude>
@@ -90,20 +72,11 @@
       <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="j1App.h" />
-    <ClInclude Include="Animation.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="j1Collision.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="j1PerfTimer.h">
       <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="j1Timer.h">
       <Filter>Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="j1EntityManager.h">
-      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="j1Entity.h">
       <Filter>Entities</Filter>
@@ -117,11 +90,35 @@
     <ClInclude Include="CollisionQuadTree.h">
       <Filter>Tools\QuadTree</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Window.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Textures.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Render.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Map.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Input.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1EntityManager.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Collision.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header">
-      <UniqueIdentifier>{bb7ad44c-74ec-417c-aa81-0529e4bba274}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scenes">
       <UniqueIdentifier>{e07660eb-d36f-4cc9-af59-324d31c2f2f6}</UniqueIdentifier>
     </Filter>
