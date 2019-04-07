@@ -231,7 +231,7 @@ Detect collision on lines.
 
 [Wikipedia](https://es.wikipedia.org/wiki/Quadtree).
 
-I have taken the base code from [Sprite Ordering and Camera Culling Research](https://github.com/christt105/Sprite_Ordering_and_Camera_Culling_Personal_Research) by [christt105](https://github.com/christt105) and handouts worked in development.
+[Sprite Ordering and Camera Culling Research](https://github.com/christt105/Sprite_Ordering_and_Camera_Culling_Personal_Research)
 
 
 
