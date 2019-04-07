@@ -58,18 +58,6 @@ void CollisionQuadTree::CheckCollisions(float dt)
 	Collider* c1;
 	Collider* c2;
 
-	if(isDivided)
-	{
-		for (int i = 0; i < 4; ++i)
-		{
-			if (elements.size() != 0)
-			{
-				//take the function to check collisions in the same node and implement by check collisions with is sons
-				nodes[i]->CheckCollisions(dt);
-			}
-		}
-	}
-		//chack collisions in the same node
 	for (std::list<Collider*>::iterator item = elements.begin(); item != elements.end(); ++item)
 	{
 		// skip empty colliders
@@ -93,8 +81,20 @@ void CollisionQuadTree::CheckCollisions(float dt)
 				}
 			}
 		}
+		if (isDivided)
+		{
+			for (int i = 0; i < 4; ++i)
+			{
+				//TODO6:
+				//Take de function for check collisions in the same level and implement for check the collision with his sons
+			
+
+				nodes[i]->CheckCollisions(dt);
+			}
+		}
 	}
 	Draw();
+
 
 	
 }

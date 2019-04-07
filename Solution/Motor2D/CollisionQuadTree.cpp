@@ -22,20 +22,17 @@ void CollisionQuadTree::Subdivide()
 {
 	//TODO2:
 	//Implement Subdivide function
-	//be careful with the maxim_levels
-	//if (level < max_levels)
-	{
-		isDivided = true;
-		//topLeft
-		nodes[0] = new CollisionQuadTree(max_levels, { area.x,area.y, area.w / 2, area.h / 2 }, level + 1, maxElements, this);
-		//topRight
-		nodes[1] = new CollisionQuadTree(max_levels, { area.x + area.w / 2,area.y,area.w / 2, area.h / 2 }, level + 1, maxElements, this);
-		//downLeft
-		nodes[2] = new CollisionQuadTree(max_levels, { area.x,area.y + area.h / 2 , area.w / 2, area.h / 2 }, level + 1, maxElements, this);
-		//downRight
-		nodes[3] = new CollisionQuadTree(max_levels, { area.x + area.w / 2 ,area.y + area.h / 2, area.w / 2,  area.h / 2 }, level + 1, maxElements, this);
-		DistrbuteColliders();
-	}
+	//Create 4 childs to divide the father
+	isDivided = true;
+	//topLeft
+	nodes[0] = new CollisionQuadTree(max_levels, { area.x,area.y, area.w / 2, area.h / 2 }, level + 1, maxElements, this);
+	//topRight
+	nodes[1] = new CollisionQuadTree(max_levels, { area.x + area.w / 2,area.y,area.w / 2, area.h / 2 }, level + 1, maxElements, this);
+	//downLeft
+	nodes[2] = new CollisionQuadTree(max_levels, { area.x,area.y + area.h / 2 , area.w / 2, area.h / 2 }, level + 1, maxElements, this);
+	//downRight
+	nodes[3] = new CollisionQuadTree(max_levels, { area.x + area.w / 2 ,area.y + area.h / 2, area.w / 2,  area.h / 2 }, level + 1, maxElements, this);
+	DistrbuteColliders();
 }
 
 void CollisionQuadTree::AddCollider(Collider* col)
@@ -92,43 +89,7 @@ void CollisionQuadTree::CheckCollisions(float dt)
 	Collider* c1;
 	Collider* c2;
 
-	if(isDivided)
-	{
-		for (int i = 0; i < 4; ++i)
-		{
-		//TODO6:
-		//Take de function for check collisions in the same level and implement for check te collision with his sons
-			if (elements.size() != 0)
-			{
-				std::list<Collider*>::iterator item = elements.begin();
-				for (; item != elements.end(); ++item)
-				{
-					// skip empty colliders
-					if (*item == nullptr)
-						continue;
-					c1 = (*item);
-					// avoid checking collisions already checked
 
-					std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
-					for (; item2 != nodes[i]->elements.end(); ++item2)
-					{
-						// skip empty colliders
-						if (*item2 == nullptr)
-							continue;
-						c2 = *item2;
-						++App->scene->collisionsCheck;
-						if (c1->CheckCollision(c2->rect) == true)
-						{
-							if (c1->to_delete == false && c2->to_delete == false) {
-								App->collider->OnCollisionCall(c1, c2, dt);
-							}
-						}
-					}
-				}
-			}
-			nodes[i]->CheckCollisions(dt);
-		}
-	}
 	for (std::list<Collider*>::iterator item = elements.begin(); item != elements.end(); ++item)
 	{
 		// skip empty colliders
@@ -149,6 +110,31 @@ void CollisionQuadTree::CheckCollisions(float dt)
 			{
 				if (c1->to_delete == false && c2->to_delete == false) {
 					App->collider->OnCollisionCall(c1, c2, dt);
+				}
+			}
+		}
+		if (isDivided)
+		{
+			for (int i = 0; i < 4; ++i)
+			{
+				//TODO6:
+				//Take de function for check collisions in the same level and implement for check the collision with his sons
+				std::list<Collider*>::iterator item2 = nodes[i]->elements.begin();
+				for (; item2 != nodes[i]->elements.end(); ++item2)
+				{
+					// skip empty colliders
+					if (*item2 == nullptr)
+						continue;
+					c2 = *item2;
+					++App->scene->collisionsCheck;
+					if (c1->CheckCollision(c2->rect) == true)
+					{
+						if (c1->to_delete == false && c2->to_delete == false) {
+							App->collider->OnCollisionCall(c1, c2, dt);
+						}
+					}
+
+					nodes[i]->CheckCollisions(dt);
 				}
 			}
 		}
