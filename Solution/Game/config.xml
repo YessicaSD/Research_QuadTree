@@ -2,7 +2,7 @@
 
 <config>
   <app framerate_cap="30">
-    <title>SpriteOrdering and Camera Culling</title>
+    <title>QuadTree</title>
     <organization>UPC</organization>
   </app>
 	
@@ -35,13 +35,5 @@
     <folder>maps/</folder>
   </map>
 
-  <scene>
-    <map name="Scene.tmx"/><!--First map that will be loaded-->
-    <map name="Iso.tmx"/>
-  </scene>
-  
-  <player>
-    <file>player.tsx</file>
-  </player>
 
 </config>
