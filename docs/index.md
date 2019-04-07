@@ -56,7 +56,7 @@ Now I will explain the code.
 First remember that this code it's focused on a collisions quadtree.
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/quadtreeH.PNG?raw=true" width="650">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/quadtreeH.PNG?raw=true" width="1000">
 </p>
 
 This is my "quadtree" class. We use it to store the variables and implement the functions that will be used in all types of quadtrees. So all the others will depen on this one.
@@ -72,7 +72,7 @@ Functions:
 Now we move to collisions quadtree.
 
 <p align="center">
-<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/CollisionquadtreeH.PNG?raw=true" width="650">
+<img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/CollisionquadtreeH.PNG?raw=true" width="1000">
 </p>
 
 Since this class is a child of a quadtree, the constructor needs the same variables as a quadtree and one pointer the quadtree that create itself. If this is the first quadtree the pointer equals nullptr;
