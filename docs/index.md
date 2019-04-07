@@ -1,6 +1,6 @@
 # QuadTree
 
-In videdgoames, when we want draw map in camera or check if two entities/ particles are colliding, we think use the method that we know. We use exhaustive method that consist to go element for element to do the desired action. Know we analitzate this method. If we have 10 collision we check one collison with other 9. We do 10*10 = 100 checks. In case that we have 100 collisions -> 100*100 = 10.000 checks and with a 1000 collision -> 1000 * 1000 = 1.000.000 checks in frame. We can see that the check collisions have a cost to elements^2. 
+In videdgoames, when we want draw map in camera or check if two entities/ particles are colliding, we think use the method that we know. We use exhaustive method that consist to go element for element to do the desired action. Know we analitzate this method. If we have 10 collision we check one collison with other 9. We do 10 * 10 = 100 checks. In case that we have 100 collisions -> 100 * 100 = 10.000 checks and with a 1000 collision -> 1000 * 1000 = 1.000.000 checks in frame. We can see that the check collisions have a cost to elements^2. 
 
 ## Tree
 
