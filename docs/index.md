@@ -6,15 +6,14 @@ In videdgoames, when we want draw map in camera or check if two entities/ partic
 
 When we talk to programming, one tree is one of the more usefull structure of data. His principal caracteristic is that store data in hierarchical structure when the arrays, list, etc... do it in a lineal form. Trees are compost by nodes(store the information) and brarnch (link nodes).
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/tree.jpg" width="520">
-</p>
+
 
 ## QuadTree
 
 QuadTree is one tree where Nodes have 4 or 0 childs. We use this structure for 2 reasons:
 
-* **Camera Culling:** As I mentioned, we use the exhaustive method to only paint the tiles that are represented in camera. But for the big map pass same that colliders. By solve this we use one quadtree. In this case only we need to agroup tiles in nodes of quadtree, and then check to recursive form if the tiles of this nodes are into the camera.
+* **Camera Culling:** As I mentioned, we use the exhaustive method to only paint the tiles that are represented in camera. But for the big map pass same that colliders. By solve this we use one quadtree. In this case only we need to agroup tiles in nodes of quadtree, and then check to recursive form if the rect that compose the tree is on camera. If it is, we need to check what to his sons stay into camera. When we arrive under the tree we paint de tiles the nodes that keep on camera.
 
 * **Check Collisions:** This case is more difficult by camera culling because the tiles are static but entities and particles are dinamic. For this case we need to create a dinamic quadtree that always change together with entities. This it's more slow that quadtree mentioned before but it's more fast than exhaustive method. 
 
@@ -24,27 +23,23 @@ In this research I centred in check collisions because if learn this quadtree, t
 
 The principal idea of this method is that entities search is position inside the tree and how it they know in that node stay, compare the collision with entities in a same node.
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/1366_2000.png" width="300">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/1366_2001.png" width="300">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/1366_2002.png" width="300">
    <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/1366_2003.png" width="300">
-</p>
 
 This process avoid check a lot of collisions with entities that it's imposible to collide by the distance.
 With a 15 entities in map we can whatch this:
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/unknown%202.png" width="300">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/unknown3.png" width="300">
-</p>
+
 
 In the left we can see a profiler when cheking collisions with quadtree and the right with exhaustive method. We can see that the values are very similar. But when we have 300/400 entities in screen succes this:
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/unknown%204.png" width="300">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/unknown.png" width="300">
-</p>
+
 Quadtree its more faster than exhaustive method. 
 
 ## Code
@@ -53,9 +48,8 @@ Now I pass to explain the code.
 
 First remember that this code it's enfoqued to collisions quadtree.
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/quadtreeH.PNG" width="650">
-</p>
+
 
 This is my class quadtree when I store the variables and implement the functions that will be use all types of quadtrees.
 
@@ -69,9 +63,8 @@ functions:
 
 Now we pass to collisions quadtree.
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/CollisionquadtreeH.PNG" width="650">
-</p>
+
 
 How this class are a child of quadtree, the constructor need the same variables of quadtree and one pointer of quadtree that create this, if is the first quadtree the pointer = nullptr;
 
@@ -100,15 +93,15 @@ Implement funciton AddCollider. This function only add the collider in list to e
 * **comprove:**
 
 number of entities incrase.
-<p align="center">
+
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/todo1.PNG" width="450">
-</p>
+
 
 * **solution:**
 
-<p align="center">
+
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO1Sol.PNG" width="450">
-</p>
+
 
 ### TODO 2
 
@@ -119,16 +112,12 @@ Implement funciton Subdivide. Assign 4 quadtrees to nodes vector.
 * **comprove:**
 
 When pass the maxim elements appear 4 rects inside the original.
-<p align="center">
+
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO2.PNG" width="450">
-</p>
 
 * **solution:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO2Sol.PNG" width="450">
-</p>
-
 
 ### TODO 3
 
@@ -142,10 +131,9 @@ Implement funciton to distribute the colliders between his childs. Call the funt
 
 * **solution:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO3Sol.PNG" width="450">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO3SOL2.PNG" width="450">
-</p>
+
 
 
 ### TODO 4
@@ -162,9 +150,8 @@ If when distribute elements one node size it's bigger than maxElements call subd
 
 * **solution:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO4Sol.PNG" width="450">
-</p>
+
 
 
 ### TODO 5
@@ -175,23 +162,17 @@ Implement funciton PlaceCollider. Add the collider in biggest level that comply 
 
 * **comprove:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5.1.PNG" width="450">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5.2.PNG" width="450">
-</p>
 
 * **solution:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL.PNG" width="450">
   <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO5SOL2.PNG" width="450">
-</p>
 
 Before do TODO 6 i need to explain the problem that his solved. With the function CheckCollision implemented in this moment the quadtree check the collisions with colliders in his node, but what happens when the collider isn't in one node in the maxim level of this quadtree? In last todo we saved in the last node to complit the CheckIn boolean. This is the result: 
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/QuadTreeCodeTree.gif" width="450">
-  </p>
   
   For dectect collisions with this nodes we need check the collider with elements to save in child nodes.
 
@@ -207,9 +188,7 @@ Detect collision on lines.
 
 * **solution:**
 
-<p align="center">
 <img src="https://github.com/didaclis/Research_QuadTree/blob/master/docs/images/TODO6SOL.PNG" width="450">
-</p>
 
 ## Autor
 
