@@ -1,6 +1,8 @@
 # QuadTree
 
-[Repository](https://github.com/didaclis/Research_QuadTree) | [Exercises](https://github.com/didaclis/Research_QuadTree/releases/tag/Handout) | [Solutions](https://github.com/didaclis/Research_QuadTree/releases/tag/Solution)
+* [Repository](https://github.com/didaclis/Research_QuadTree) 
+* [Exercises](https://github.com/didaclis/Research_QuadTree/releases/tag/Handout) 
+* [Solutions](https://github.com/didaclis/Research_QuadTree/releases/tag/Solution)
 
 
 ## Introduction
