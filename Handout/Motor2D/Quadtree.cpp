@@ -1,0 +1,24 @@
+
+
+#include "Quadtree.h"
+#include "j1Render.h"
+#include "j1App.h"
+
+Quadtree::Quadtree(uint max_levels, SDL_Rect area, uint level) 
+	:max_levels(max_levels), level(level), area(area)
+{
+	isDivided = false;
+}
+
+Quadtree::~Quadtree()
+{
+}
+
+bool Quadtree::CheckIn(SDL_Rect rect)
+{
+
+	return(rect.x > area.x && rect.y > area.y && rect.x + rect.w < area.x + area.w 
+		&& rect.y + rect.h < area.y + area.h);
+}
+
+
