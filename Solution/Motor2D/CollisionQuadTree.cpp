@@ -65,7 +65,7 @@ void CollisionQuadTree::DistrbuteColliders()
 
 		for (uint i = 0; i < 4; ++i)
 		{
-			if (nodes[i]->CheckIn((*item)->rect))
+			if (SDL_HasIntersection(&nodes[i]->area,&(*item)->rect))
 			{
 				nodes[i]->elements.push_back(*item);
 				item = elements.erase(item);
