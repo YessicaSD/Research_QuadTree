@@ -33,13 +33,6 @@ public:
 	bool Save(pugi::xml_node&) const;
 	SDL_Rect CameraInitPos();
 
-	// Blit
-	//TODO 1: Create IsOnCamera function that returns true if a RECTANGLE is on camera's viewport
-	/*Warnings: 
-				Camera position uses negative numbers to go right and down
-				Scale is important (Use 1, 2 and 3 to change between scales)
-				You can use SDL_HasIntersection(SDL_Rect1, SDL_Rect2) to be more agile*/
-
 	bool IsOnCamera(const int&x, const int&y, const int&w, const int& h) const;
 
 	iPoint ScreenToWorld(int x, int y) const;

@@ -22,7 +22,18 @@ void CollisionQuadTree::Subdivide()
 	//TODO2:
 	//implement Subdivide function.
 	//Create 4 childs that are divisions of the father.
+	if (!isDivided && level<max_levels)
+	{
+		isDivided = true;
 
+		int half_w = (int)(area.w *0.5f);
+		int half_h = (int)(area.h *0.5f);
+
+		nodes[0] = new CollisionQuadTree(max_levels, { area.x, area.y,half_w, half_h }, level + 1, maxElements, this);
+		nodes[1] = new CollisionQuadTree(max_levels, { area.x + half_w, area.y , half_w, half_h }, level + 1, maxElements, this);
+		nodes[2] = new CollisionQuadTree(max_levels, { area.x, area.y + half_h, half_w, half_h }, level + 1, maxElements, this);
+		nodes[3] = new CollisionQuadTree(max_levels, { area.x + half_w, area.y + half_h, half_w, half_h }, level + 1, maxElements, this);
+	}
 }
 
 void CollisionQuadTree::AddCollider(Collider* col)
@@ -32,6 +43,12 @@ void CollisionQuadTree::AddCollider(Collider* col)
 	/*Implement AddCollider function();
 	This function only adds colliders in the tree’s level  where it’s called.
 	If the size of the Elements list  is smaller than maxElements call subdivide function.*/
+	elements.push_back(col);
+	if (elements.size() >= maxElements)
+	{
+		Subdivide();
+	}
+
 }
 
 void CollisionQuadTree::DistrbuteColliders()
@@ -40,10 +57,18 @@ void CollisionQuadTree::DistrbuteColliders()
 	for (;item != elements.end();++item)
 	{
 		//TODO3:
-		/*Create the loop which distributes the colliders between the 4 new  quadtrees
+		/*Create the loop which distributes the colliders between the 4 new quadtrees
 		Remember to delete colliders when saved in a subnode
 		Call this function in subdivide */
-		
+		for (uint i = 0; i < 4; ++i)
+		{
+			if (SDL_HasIntersection(&nodes[i]->area, &(*item)->rect))
+			{
+				nodes[i]->elements.push_back(*item);
+				item = elements.erase(item);
+			}
+		}
+
 		//TODO4:
 		//creates the condicion to call subdivide function.
 		
