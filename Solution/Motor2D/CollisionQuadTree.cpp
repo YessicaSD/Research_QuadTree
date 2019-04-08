@@ -63,23 +63,23 @@ void CollisionQuadTree::DistrbuteColliders()
 		Remember to delete colliders when saved in a subnode
 		Call this function in subdivide */
 
-		bool quit = false;
 		for (uint i = 0; i < 4; ++i)
 		{
 			if (nodes[i]->CheckIn((*item)->rect))
 			{
 				nodes[i]->elements.push_back(*item);
+				item = elements.erase(item);
 		//TODO4:
 		//creates the condicion to call subdivide function.
 				if (nodes[i]->GetSize() >= maxElements)
 				{
 					nodes[i]->Subdivide();
 				}
-				quit = true;
+				break;
 			}
 		}
-		if (quit)
-			elements.remove(*item);
+		
+			
 	}
 }
 
